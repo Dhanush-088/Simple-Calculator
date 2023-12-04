@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple Calculator</title>
+	<style>
+		.Calculator{
+			width: 300px;
+			height: 400px;
+			background: grey;
+			background-radius:7px ;
+			margin: auto;
+			padding: 10px;
+		}
+#result{
+	width: 98%;
+	height: 65%;
+    border-radius:5px ;
+    border: 1px solid black;
+    background-color: whitesmoke;
+    font-family: monospace;
+    font-weight: bolder;
+    font-size: 20px;
+
+}
+#btn{
+	background-color: red;
+}
+input[type=button]{
+	width: 100%;
+	height: 70%;
+	border-radius: 5px;
+	color: black;
+	background-color: #42g5c2;
+	font-family: monospace;
+	font-weight: bold;
+	font-size: 20px;
+} 
+input:active[type=button]{
+	background-color: floralwhite;
+}
+
+</style>
+</head>
+<body>
+<table class="Calculator">
+	<tr>
+		<td colspan ="3"><input type="text" id="result" disabled></td>
+		<td><input type="button" Value="AC" id="btn" onclick="clearScreen()"></td>
+	</tr>
+	<tr>
+		<td><input type="button" Value="1" onclick="display('1')"></td>
+		<td><input type="button" Value="2" onclick="display('2')"></td>
+		<td><input type="button" Value="3" onclick="display('3')"></td>
+		<td><input type="button" Value="+" onclick="display('+')"></td>
+	</tr>
+	<tr>
+		<td><input type="button" Value="4" onclick="display('4')"></td>
+		<td><input type="button" Value="5" onclick="display('5')"></td>
+		<td><input type="button" Value="6" onclick="display('6')"></td>
+		<td><input type="button" Value="-" onclick="display('-')"></td>
+	</tr>
+	<tr>
+		<td><input type="button" Value="7" onclick="display('7')"></td>
+		<td><input type="button" Value="8" onclick="display('8')"></td>
+		<td><input type="button" Value="9" onclick="display('9')"></td>
+		<td><input type="button" Value="*" onclick="display('*')"></td>
+	</tr>
+	<tr>
+		<td><input type="button" Value="." onclick="display('.')"></td>
+		<td><input type="button" Value="0" onclick="display('0')"></td>
+		<td><input type="button" Value="/" onclick="display('/')"></td>
+		<td><input type="button" Value="=" id="btn" onclick="output()"></td>
+	</tr>
+</table>
+<script type="text/javascript">
+	function display(value)
+	{
+		document.getElementById('result').value+=value
+	}
+	function clearScreen()
+	{
+		document.getElementById('result').value=""
+
+	}
+	function output(){
+		var a=document.getElementById('result').value
+		var answer=eval(a)
+		document.getElementById('result').value=answer
+	}
+</script>
+</body>
+</html>
